@@ -1,2 +1,3 @@
-# Entertainhub-server
-This is the backend of a Full Stack MERN Web application
+# **EntertainHub - Node/Express Server**
+
+## --Soon to be updated--
