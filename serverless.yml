@@ -1,0 +1,40 @@
+org: surriyaluavan
+app: entertainhub-serverless
+service: entertainhub-serverless
+frameworkVersion: "3"
+useDotenv: true
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-esbuild
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 5000
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 512
+  stage: dev
+  profile: myProfile
+  region: ca-central-1
+
+functions:
+  api:
+    handler: server.handler
+    timeout: 10
+    events:
+      - httpApi: "*"
+  scheduler:
+    handler: script/scheduler.handler
+    timeout: 120
+    events:
+      - schedule:
+          rate: rate(7 days)
+  # scheduler:
+  #   handler: script/scheduler.handler
+  #   timeout: 120
+  #   events:
+  #     - httpApi: "*"

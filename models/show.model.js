@@ -131,7 +131,7 @@ const tvSeriesSchema = new Schema({
   },
 });
 
-const Show = model("Hello", baseShowSchema);
+const Show = model("Show", baseShowSchema);
 
 const Movie = Show.discriminator("Movie", movieSchema);
 const TVSeries = Show.discriminator("TV Series", tvSeriesSchema);

@@ -63,31 +63,6 @@ const fetchTopRatedTV = async () => {
       }
     }
 
-    // topRatedListUpdated.forEach(async (item, index) => {
-    //   const showInstance = await models.showCollection.Show.findOne({
-    //     title: item.title,
-    //   }).exec();
-
-    //   if (showInstance) {
-    //     showInstance.lists.top_rated.status = true;
-    //     showInstance.lists.top_rated.order = index;
-    //     await showInstance.save();
-    //   } else {
-    //     const updatedItem = {
-    //       ...item,
-    //       lists: {
-    //         top_rated: { status: true, order: index },
-    //         airing_today: { status: false, order: -1 },
-    //         trending: { status: false, order: -1 },
-    //         on_the_air: { status: false, order: -1 },
-    //         popular: { status: false, order: -1 },
-    //       },
-    //     };
-
-    //     await models.showCollection.TVSeries.create(updatedItem);
-    //   }
-    // });
-
     return topRatedListUpdated;
   } catch (error) {
     console.error(error);

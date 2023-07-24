@@ -39,7 +39,6 @@ const fetchGenreMovies = async (genreId) => {
             upcoming: { status: false, order: -1 },
           },
         };
-        console.log("Movie", item.title, " - Created");
         await models.showCollection.Movie.create(updatedItem);
       }
     }

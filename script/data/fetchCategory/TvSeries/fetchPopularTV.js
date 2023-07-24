@@ -60,31 +60,6 @@ const fetchPopularTV = async () => {
       }
     }
 
-    // popularListUpdated.forEach(async (item, index) => {
-    //   const showInstance = await models.showCollection.Show.findOne({
-    //     title: item.title,
-    //   }).exec();
-
-    //   if (showInstance) {
-    //     showInstance.lists.popular.status = true;
-    //     showInstance.lists.popular.order = index;
-    //     await showInstance.save();
-    //   } else {
-    //     const updatedItem = {
-    //       ...item,
-    //       lists: {
-    //         popular: { status: true, order: index },
-    //         airing_today: { status: false, order: -1 },
-    //         trending: { status: false, order: -1 },
-    //         on_the_air: { status: false, order: -1 },
-    //         top_rated: { status: false, order: -1 },
-    //       },
-    //     };
-
-    //     await models.showCollection.TVSeries.create(updatedItem);
-    //   }
-    // });
-
     return popularListUpdated;
   } catch (error) {
     console.error(error);

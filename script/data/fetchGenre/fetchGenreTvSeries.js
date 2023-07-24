@@ -39,7 +39,6 @@ const fetchGenreTvSeries = async (genreId) => {
             top_rated: { status: false, order: -1 },
           },
         };
-        console.log("TV", item.title, " - Created");
         await models.showCollection.TVSeries.create(updatedItem);
       }
     }

@@ -46,8 +46,6 @@ const fetchPopularMovies = async () => {
         showInstance.lists.popular.order = index;
         await showInstance.save();
       } else {
-        console.log(item.title);
-
         const updatedItem = {
           ...item,
           lists: {
@@ -62,32 +60,6 @@ const fetchPopularMovies = async () => {
         await models.showCollection.Movie.create(updatedItem);
       }
     }
-
-    // PopularListUpdated.forEach(async (item, index) => {
-    //   const showInstance = await models.showCollection.Show.findOne({
-    //     title: item.title,
-    //   }).exec();
-
-    //   if (showInstance) {
-    //     showInstance.lists.popular.status = true;
-    //     showInstance.lists.popular.order = index;
-    //     await showInstance.save();
-    //   } else {
-    //     console.log(item.title);
-
-    //     const updatedItem = {
-    //       ...item,
-    //       lists: {
-    //         popular: { status: true, order: index },
-    //         now_playing: { status: false, order: -1 },
-    //         trending: { status: false, order: -1 },
-    //         top_rated: { status: false, order: -1 },
-    //         upcoming: { status: false, order: -1 },
-    //       },
-    //     };
-    //     await models.showCollection.Movie.create(updatedItem);
-    //   }
-    // });
 
     return PopularListUpdated;
   } catch (error) {

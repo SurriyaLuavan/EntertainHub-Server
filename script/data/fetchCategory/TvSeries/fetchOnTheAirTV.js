@@ -63,31 +63,6 @@ const fetchOnTheAirTV = async () => {
       }
     }
 
-    // onTheAirListUpdated.forEach(async (item, index) => {
-    //   const showInstance = await models.showCollection.Show.findOne({
-    //     title: item.title,
-    //   }).exec();
-
-    //   if (showInstance) {
-    //     showInstance.lists.on_the_air.status = true;
-    //     showInstance.lists.on_the_air.order = index;
-    //     await showInstance.save();
-    //   } else {
-    //     const updatedItem = {
-    //       ...item,
-    //       lists: {
-    //         on_the_air: { status: true, order: index },
-    //         airing_today: { status: false, order: -1 },
-    //         trending: { status: false, order: -1 },
-    //         popular: { status: false, order: -1 },
-    //         top_rated: { status: false, order: -1 },
-    //       },
-    //     };
-
-    //     await models.showCollection.TVSeries.create(updatedItem);
-    //   }
-    // });
-
     return onTheAirListUpdated;
   } catch (error) {
     console.error(error);

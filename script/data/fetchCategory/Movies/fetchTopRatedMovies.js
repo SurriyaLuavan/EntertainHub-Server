@@ -46,8 +46,6 @@ const fetchTopRatedMovies = async () => {
         showInstance.lists.top_rated.order = index;
         await showInstance.save();
       } else {
-        console.log(item.title);
-
         const updatedItem = {
           ...item,
           lists: {
@@ -62,33 +60,6 @@ const fetchTopRatedMovies = async () => {
         await models.showCollection.Movie.create(updatedItem);
       }
     }
-
-    // TopRatedListUpdated.forEach(async (item, index) => {
-    //   const showInstance = await models.showCollection.Show.findOne({
-    //     title: item.title,
-    //   }).exec();
-
-    //   if (showInstance) {
-    //     showInstance.lists.top_rated.status = true;
-    //     showInstance.lists.top_rated.order = index;
-    //     await showInstance.save();
-    //   } else {
-    //     console.log(item.title);
-
-    //     const updatedItem = {
-    //       ...item,
-    //       lists: {
-    //         top_rated: { status: true, order: index },
-    //         popular: { status: false, order: -1 },
-    //         now_playing: { status: false, order: -1 },
-    //         trending: { status: false, order: -1 },
-    //         upcoming: { status: false, order: -1 },
-    //       },
-    //     };
-
-    //     await models.showCollection.Movie.create(updatedItem);
-    //   }
-    // });
 
     return TopRatedListUpdated;
   } catch (error) {
